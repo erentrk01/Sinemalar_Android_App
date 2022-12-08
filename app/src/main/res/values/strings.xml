@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Sinemalar</string>
+    <string name="seans_btn">Seansları Gör</string>
+    <string name="Vizyon_Title">VİZYONDAKİLER</string>
+    <string name="Vizyon_movie_name">Vahşi</string>
+    <string name="News_Header">HABERLER</string>
+</resources>
