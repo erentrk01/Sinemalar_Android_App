@@ -4,4 +4,8 @@
     <string name="Vizyon_Title">VİZYONDAKİLER</string>
     <string name="Vizyon_movie_name">Vahşi</string>
     <string name="News_Header">HABERLER</string>
+    <string name="btn_addfav">Add to favorites</string>
+
+    <style name="Ozet">Özet</style>
+    <style name="ActorHeading">Aktörler</style>
 </resources>

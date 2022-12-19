@@ -1,15 +1,20 @@
 package com.android.sinemalar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GestureDetectorCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 
 import com.android.sinemalar.adapters.SeansMoviesRecyclerViewAdapter;
@@ -81,7 +86,10 @@ public class MainActivity extends AppCompatActivity {
         View view = binding.getRoot();
 
         setContentView(view);
+
         doInitilaziation();
+
+
 
     }
 
@@ -93,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
                     if(moviesResponse.getMoviesHome()!=null){
                         moviesData.addAll(moviesResponse.getMoviesHome());
                         adapter.notifyDataSetChanged();
+
                     }
 
                 }
@@ -200,4 +209,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 }
