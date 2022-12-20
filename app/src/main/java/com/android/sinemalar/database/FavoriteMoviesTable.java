@@ -1,4 +1,6 @@
-package com.android.sinemalar.localDb;
+package com.android.sinemalar.database;
+
+
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -9,16 +11,16 @@ import com.android.sinemalar.models.Ontheater;
 import java.util.ArrayList;
 
 public class FavoriteMoviesTable {
-    public static String TABLE_NAME="favorite";
-    public static String FIELD_ID = "_id";
+    public static String TABLE_NAME="FavoriteTable";
+    public static String FIELD_ID = "id";
     public static String FIELD_NAME = "name";
-    public static String FIELD_ORG_NAME = "org_name";
+    public static String FIELD_ORG_NAME = "orgname";
     public static String FIELD_DURATION = "duration";
     public static String FIELD_IMG = "img";
     public static String FIELD_GENRES = "genres";
-    public static String FIELD_PRODUCT_YEAR = "product_year";
+    public static String FIELD_PRODUCT_YEAR = "productyear";
 
-    public static String CREATE_TABLE_SQL = "CREATE TABLE "+TABLE_NAME+" ( "+FIELD_ID+" number, "+FIELD_NAME+" text, "+FIELD_ORG_NAME+" text, "+FIELD_DURATION+" number, "+FIELD_IMG+" text, "+FIELD_GENRES+" text, "+FIELD_PRODUCT_YEAR +" number, "+FIELD_ORG_NAME +" text) ;";
+    public static String CREATE_TABLE_SQL = "CREATE TABLE "+TABLE_NAME+" ( "+FIELD_ID+" number, "+FIELD_NAME+" text, "+FIELD_IMG+" text, "+FIELD_ORG_NAME+" text, "+FIELD_DURATION+" number, "+FIELD_GENRES+" text, "+FIELD_PRODUCT_YEAR +" number);";
     public static String DROP_TABLE_SQL = "DROP TABLE if exists "+TABLE_NAME;
     public static ArrayList<Ontheater> getAllMovie(DatabaseHelper dbHelper){
         Ontheater anItem;
@@ -45,13 +47,18 @@ public class FavoriteMoviesTable {
 
         contentValues.put(FIELD_ID, id);
         contentValues.put(FIELD_NAME, name);
-        contentValues.put(FIELD_ORG_NAME, org_name);
         contentValues.put(FIELD_IMG, img);
-        contentValues.put(FIELD_PRODUCT_YEAR, product_year);
-        contentValues.put(FIELD_GENRES, genres);
+        contentValues.put(FIELD_ORG_NAME, org_name);
         contentValues.put(FIELD_DURATION, duration);
+        contentValues.put(FIELD_GENRES, genres);
+        contentValues.put(FIELD_PRODUCT_YEAR, product_year);
         boolean res = db.insert(TABLE_NAME, contentValues);
         return  res;
+    }
+    public static boolean deleteMovie (DatabaseHelper db, int id){
+        String where = FIELD_ID +" = "+ id;
+        boolean res = db.delete(TABLE_NAME,where);
+        return res;
     }
 
 

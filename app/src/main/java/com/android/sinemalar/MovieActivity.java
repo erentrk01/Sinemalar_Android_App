@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GestureDetectorCompat;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -17,11 +16,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.sinemalar.databinding.ActivityMainBinding;
 import com.android.sinemalar.databinding.ActivityMovieBinding;
-import com.android.sinemalar.localDb.DatabaseHelper;
-import com.android.sinemalar.localDb.FavoriteMoviesTable;
-import com.android.sinemalar.utilities.SysFavs;
+import com.android.sinemalar.database.DatabaseHelper;
+import com.android.sinemalar.database.FavoriteMoviesTable;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

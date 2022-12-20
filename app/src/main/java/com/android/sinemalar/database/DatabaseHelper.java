@@ -1,4 +1,4 @@
-package com.android.sinemalar.localDb;
+package com.android.sinemalar.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,21 +8,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import androidx.annotation.Nullable;
-
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static String DATABASE_NAME=" Sinemalarrdb";
     public static int DATABASE_VERSION = 1;
 
     SQLiteDatabase sqLiteDB;
-    public static String TABLE_NAME="favorite";
-    public static String FIELD_ID = "id";
-    public static String FIELD_NAME = "name";
-    public static String FIELD_ORG_NAME = "orgname";
-    public static String FIELD_DURATION = "duration";
-    public static String FIELD_IMG = "img";
-    public static String FIELD_GENRES = "genres";
-    public static String FIELD_PRODUCT_YEAR = "productyear";
+
 
     public DatabaseHelper( Context context) {
         super(context, DATABASE_NAME,null,DATABASE_VERSION);
@@ -39,9 +30,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //onCreate called if database doesn't exist
         try {
-            db.execSQL( "CREATE TABLE "+TABLE_NAME+" ( "+FIELD_ID+" INTEGER PRIMARY KEY, "+FIELD_NAME+" text, "+FIELD_ORG_NAME+" text, "+FIELD_DURATION+" number, "+FIELD_IMG+" text, "+FIELD_GENRES+" text, "+FIELD_PRODUCT_YEAR +" INTEGER, "+FIELD_ORG_NAME +" text);");
+            db.execSQL(FavoriteMoviesTable.CREATE_TABLE_SQL);
 
         }catch (SQLException e){
+            //Log.d("error sql",e);
             e.printStackTrace();
         }
         Log.d("DATABASE OPERATIONS", "OnCreate, table is created, records inserted");

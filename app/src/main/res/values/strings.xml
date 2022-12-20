@@ -5,7 +5,10 @@
     <string name="Vizyon_movie_name">Vahşi</string>
     <string name="News_Header">HABERLER</string>
     <string name="btn_addfav">Add to favorites</string>
+    <string name="FavoritesHeader">Your Favorites</string>
+    <string name="SpinnerHeader">Choose</string>
 
     <style name="Ozet">Özet</style>
+
     <style name="ActorHeading">Aktörler</style>
 </resources>
